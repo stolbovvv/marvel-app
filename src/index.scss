@@ -93,6 +93,12 @@ body {
   &:active {
     opacity: 0.75;
   }
+
+  &:disabled {
+    filter: grayscale(1);
+    background-position: 50%;
+    opacity: 0.5;
+  }
 }
 
 .custom-link {
@@ -116,4 +122,3 @@ body {
     background: $clr-primary;
   }
 }
-

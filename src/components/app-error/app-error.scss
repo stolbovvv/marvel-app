@@ -1,0 +1,16 @@
+@use '../../styles/settings' as *;
+
+.app-error {
+  display: flex;
+  align-items: center;
+
+  &__img {
+    max-width: 30px;
+  }
+  &__message {
+    margin: 0 0 0 16px;
+    font-size: $fs-400;
+    font-weight: $fw-700;
+    color: $clr-primary;
+  }
+}

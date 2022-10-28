@@ -22,6 +22,9 @@
   }
   &__body {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 301px;
     background: $clr-gray-900;
     border: 1px solid $clr-gray-700;
     margin: 24px 0 0 0;
@@ -42,6 +45,8 @@
     object-position: center;
   }
   &__information {
+    flex: 1 1 auto;
+    align-self: stretch;
     display: flex;
     flex-direction: column;
     padding: 24px 24px 24px 24px;
