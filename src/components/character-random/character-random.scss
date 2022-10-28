@@ -1,0 +1,65 @@
+@use '../../styles/settings' as *;
+@use '../../styles/mixins' as *;
+
+.character-random {
+  padding: 48px 0 0 0;
+
+  &__head {
+    display: flex;
+    align-items: center;
+  }
+  &__title {
+    font-size: $fs-600;
+    font-weight: $fw-700;
+    text-transform: uppercase;
+  }
+  &__question {
+    font-size: $fs-300;
+    margin: 0 0 0 auto;
+  }
+  &__button {
+    margin: 0 0 0 16px;
+  }
+  &__body {
+    display: flex;
+    background: $clr-gray-900;
+    border: 1px solid $clr-gray-700;
+    margin: 24px 0 0 0;
+  }
+  &__thumbnail {
+    flex: 0 0 25%;
+    padding: 0 0 25% 0;
+    position: relative;
+    overflow: hidden;
+  }
+  &__thumbnail-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  &__information {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 24px 24px 24px;
+  }
+  &__name {
+    font-size: $fs-900;
+    line-height: 1em;
+    font-weight: $fw-700;
+    text-transform: uppercase;
+    color: $clr-primary;
+  }
+  &__description {
+    margin: 24px 0 0 0;
+  }
+  &__links {
+    margin: auto 0 0 0;
+    > * + * {
+      margin: 0 0 0 16px;
+    }
+  }
+}

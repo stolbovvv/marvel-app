@@ -1,0 +1,21 @@
+@use '../../styles/settings' as *;
+
+.character-content {
+  margin: 48px 0 0 0;
+
+  &__head {
+    display: flex;
+  }
+  &__title {
+    font-size: $fs-600;
+    font-weight: $fw-700;
+    text-transform: uppercase;
+  }
+  &__body {
+    margin: 24px 0 0 0;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 24px;
+    align-items: flex-start;
+  }
+}

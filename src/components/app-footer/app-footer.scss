@@ -1,0 +1,18 @@
+@use '../../styles/settings' as *;
+
+.app-footer {
+  margin: 32px 0 0 0;
+  border-top: 1px solid $clr-gray-700;
+  background-color: $clr-gray-900;
+}
+
+.app-footer-copyrigth {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0 8px 0;
+
+  &__text {
+    font-size: $fs-300;
+    color: $clr-gray-400;
+  }
+}

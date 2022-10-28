@@ -9,26 +9,31 @@ $breakpoint-list: (
 );
 
 // COLORS SETTING
-$clr-black: #000000;
+$clr-black: #1e1e1e;
 $clr-white: #ffffff;
 
-$clr-gray-900: #171717;
+$clr-gray-900: #170707;
+$clr-gray-800: #272727;
 $clr-gray-700: #383838;
 $clr-gray-400: #626262;
 $clr-gray-200: #cacaca;
 $clr-gray-100: #ebebeb;
 
-$clr-primary: #bd3f32;
-$clr-secondary: #cb356b;
+$clr-primary: #db3138;
 
 // FONTS SETTINGS
 $ff-system: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-$ff-primary: 'Montserrat', sans-serif;
+$ff-custom: 'Montserrat', sans-serif;
 
-$fs-small: 14px;
-$fs-normal: 16px;
-$fs-moddle: 20px;
-$fs-large: 32px;
+$fs-200: 12px;
+$fs-300: 14px;
+$fs-400: 16px;
+$fs-500: 18px;
+$fs-600: 20px;
+$fs-700: 24px;
+$fs-800: 28px;
+$fs-900: 32px;
 
-$fw-regular: 400;
-$fw-bold: 700;
+$fw-400: 400;
+$fw-700: 700;
+$fw-900: 900;
