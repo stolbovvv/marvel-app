@@ -1,0 +1,36 @@
+.app-skeleton {
+  &__text {
+    padding: 16px;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+  &__circle {
+    flex: 0 0 100px;
+    height: 100px;
+    background-color: #808080;
+  }
+  &__name {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    > * + * {
+      margin: 10px 0 0 0;
+    }
+  }
+  &__mini {
+    width: 90%;
+    height: 32px;
+    background-color: #808080;
+    border-radius: 4px;
+  }
+  &__block {
+    height: 35px;
+    width: 100%;
+    background-color: #808080;
+    margin-top: 15px;
+  }
+}

@@ -4,9 +4,7 @@ import MarvelServis from '../../services/marvel-service';
 import AppSpinner from '../app-spinner/app-spinner';
 import AppError from '../app-error/app-error';
 
-function CharacterView({ character }) {
-  const { thumbnail, name, description, homepage, wiki } = character;
-
+function CharacterRandomView({ character: { thumbnail, name, description, homepage, wiki } }) {
   let stylesThumb = null;
   let stringDescr = null;
 
@@ -54,13 +52,19 @@ class CharacterRandom extends Component {
       isError: false,
     };
     this.service = new MarvelServis();
-    this.upadeteChracter();
+    this.caractreUpdateInterval = null;
   }
 
   onCharaterLoaded = (character) => {
     this.setState({
       character: character,
       isLoading: false,
+    });
+  };
+
+  onCharaterLoading = () => {
+    this.setState({
+      isLoading: true,
     });
   };
 
@@ -71,20 +75,32 @@ class CharacterRandom extends Component {
     });
   };
 
-  upadeteChracter = () => {
+  updateChracter = () => {
     const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
+    this.onCharaterLoading();
     this.service
       .getCharacter(id)
       .then((res) => this.onCharaterLoaded(res))
       .catch(() => this.onCharacterError());
   };
 
+  componentDidMount() {
+    this.updateChracter();
+    this.caractreUpdateInterval = setInterval(this.updateChracter, 30000);
+  }
+
+  componentDidUpdate() {}
+
+  componentWillUnmount() {
+    clearInterval(this.caractreUpdateInterval);
+  }
+
   render() {
     const { character, isLoading, isError } = this.state;
 
     const error = isError ? <AppError message={'An error occurred while loading the character...'} /> : null;
     const spinner = isLoading ? <AppSpinner /> : null;
-    const content = !isError && !isLoading ? <CharacterView character={character} /> : null;
+    const content = !isError && !isLoading ? <CharacterRandomView character={character} /> : null;
 
     return (
       <section className="character-random">
@@ -92,7 +108,9 @@ class CharacterRandom extends Component {
           <div className="character-random__head">
             <h2 className="character-random__title">Random character for today!</h2>
             <p className="character-random__question">Do you want to get to know him better?</p>
-            <button className="character-random__button custom-button">Try it</button>
+            <button className="character-random__button custom-button" onClick={() => this.updateChracter()}>
+              another one
+            </button>
           </div>
           <div className="character-random__body">
             {error}

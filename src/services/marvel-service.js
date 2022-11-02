@@ -16,11 +16,13 @@ class MarvelServis {
 
   _transformCharacter = (character) => {
     return {
+      id: character.id,
       name: character.name,
       thumbnail: character.thumbnail.path + '.' + character.thumbnail.extension,
       description: character.description,
       homepage: character.urls[0].url,
       wiki: character.urls[1].url,
+      comics: character.comics.items,
     };
   };
 
