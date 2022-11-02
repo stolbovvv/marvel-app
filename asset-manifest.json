@@ -1,17 +1,16 @@
 {
   "files": {
-    "main.css": "/marvel-app/static/css/main.55613241.css",
-    "main.js": "/marvel-app/static/js/main.e3082c14.js",
+    "main.css": "/marvel-app/static/css/main.e293bd59.css",
+    "main.js": "/marvel-app/static/js/main.8f222baf.js",
     "static/media/bg-characters.jpg": "/marvel-app/static/media/bg-characters.da6ed1d14bfebb6ad01e.jpg",
-    "static/media/character-thumbnail.jpg": "/marvel-app/static/media/character-thumbnail.01d111c28590a78969d9.jpg",
     "index.html": "/marvel-app/index.html",
     "static/media/app-spinner.svg": "/marvel-app/static/media/app-spinner.e34e59c67ef05188b0d258216a1ec7fd.svg",
-    "static/media/app-error.svg": "/marvel-app/static/media/app-error.32004491f054d9096efb2be0ccfc6086.svg",
-    "main.55613241.css.map": "/marvel-app/static/css/main.55613241.css.map",
-    "main.e3082c14.js.map": "/marvel-app/static/js/main.e3082c14.js.map"
+    "static/media/app-error.svg": "/marvel-app/static/media/app-error.d82c4aad42971cba25462a0d394adf13.svg",
+    "main.e293bd59.css.map": "/marvel-app/static/css/main.e293bd59.css.map",
+    "main.8f222baf.js.map": "/marvel-app/static/js/main.8f222baf.js.map"
   },
   "entrypoints": [
-    "static/css/main.55613241.css",
-    "static/js/main.e3082c14.js"
+    "static/css/main.e293bd59.css",
+    "static/js/main.8f222baf.js"
   ]
 }
