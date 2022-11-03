@@ -2,6 +2,7 @@ class MarvelServis {
   constructor() {
     this._apihost = 'https://gateway.marvel.com:443/v1/public';
     this._apikey = 'e3d5971519104048e242dfe93fbb9ab0';
+    this._characfter_offset = 210;
   }
 
   getData = async (url) => {
@@ -26,11 +27,8 @@ class MarvelServis {
     };
   };
 
-  getCharacterList = async (limit = 9, offset = 210) => {
-    const res = await this.getData(
-      `${this._apihost}/characters?limit=${limit}&offset=${offset}&apikey=${this._apikey}`
-    );
-
+  getCharacterList = async (offset = this._characfter_offset) => {
+    const res = await this.getData(`${this._apihost}/characters?limit=9&offset=${offset}&apikey=${this._apikey}`);
     return res.data.results.map((item) => this._transformCharacter(item));
   };
 

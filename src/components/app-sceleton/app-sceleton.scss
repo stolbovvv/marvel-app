@@ -1,4 +1,8 @@
+@use '../../styles/settings' as *;
+
 .app-skeleton {
+  width: 100%;
+  padding: 0 6px 8px 6px;
   &__text {
     padding: 16px;
   }

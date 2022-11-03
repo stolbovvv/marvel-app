@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import CharacterInfo from '../character-info/character-info';
 import CharacterList from '../character-list/character-list';
+import ErrorBoundary from '../error-boundary/error-boundary';
 import './character-content.scss';
 
 class CharacterContent extends Component {
@@ -23,8 +24,12 @@ class CharacterContent extends Component {
             <h2 className="character-content__title">Choose your character</h2>
           </div>
           <div className="character-content__body">
-            <CharacterList onChooseCharacter={this.chooseCharacter} />
-            <CharacterInfo characterID={this.state.selectedCaracter} />
+            <ErrorBoundary>
+              <CharacterList onChooseCharacter={this.chooseCharacter} />
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <CharacterInfo characterID={this.state.selectedCaracter} />
+            </ErrorBoundary>
           </div>
         </div>
       </section>

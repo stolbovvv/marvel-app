@@ -59,12 +59,14 @@ class CharacterRandom extends Component {
     this.setState({
       character: character,
       isLoading: false,
+      isError: false,
     });
   };
 
   onCharaterLoading = () => {
     this.setState({
       isLoading: true,
+      isError: false,
     });
   };
 
@@ -108,7 +110,10 @@ class CharacterRandom extends Component {
           <div className="character-random__head">
             <h2 className="character-random__title">Random character for today!</h2>
             <p className="character-random__question">Do you want to get to know him better?</p>
-            <button className="character-random__button custom-button" onClick={() => this.updateChracter()}>
+            <button
+              className="character-random__button custom-button"
+              disabled={isLoading}
+              onClick={() => this.updateChracter()}>
               another one
             </button>
           </div>

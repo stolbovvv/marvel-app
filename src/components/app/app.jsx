@@ -3,6 +3,7 @@ import AppHeader from '../app-header/app-header';
 import AppFooter from '../app-footer/app-footer';
 import CharacterRandom from '../character-random/character-random';
 import CharacterContent from '../character-content/character-content';
+import ErrorBoundary from '../error-boundary/error-boundary';
 
 function App() {
   return (
@@ -20,7 +21,9 @@ function App() {
           </div>
         </section>
 
-        <CharacterRandom />
+        <ErrorBoundary>
+          <CharacterRandom />
+        </ErrorBoundary>
         <CharacterContent />
       </main>
       <AppFooter />

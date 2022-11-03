@@ -1,5 +1,6 @@
 import './character-list.scss';
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import MarvelServis from '../../services/marvel-service';
 import AppError from '../app-error/app-error';
 import AppSpinner from '../app-spinner/app-spinner';
@@ -9,32 +10,42 @@ class CharacterList extends Component {
     super(props);
     this.state = {
       characters: [],
-      isLoading: true,
       isError: false,
-      offset: 210,
+      isLoading: true,
+      isAddLoading: false,
+      listOffset: 210,
+      listEnded: false,
     };
     this.service = new MarvelServis();
   }
 
   onCharactersLoaded = (data) => {
-    this.setState(({ characters, offset }) => ({
+    this.setState(({ characters, listOffset }) => ({
       characters: [...characters, ...data],
+      isError: false,
       isLoading: false,
-      offset: offset + 9,
+      isAddLoading: false,
+      listOffset: listOffset + 9,
+      listEnded: data.length < 9,
     }));
+  };
+
+  onCharactersLoading = () => {
+    this.setState({
+      isAddLoading: true,
+    });
   };
 
   onCharactersError = () => {
     this.setState({
       isLoading: false,
-      isError: true,
     });
   };
 
-  updateCharacters = () => {
-    console.log();
+  updateCharacters = (offset) => {
+    this.onCharactersLoading();
     this.service
-      .getCharacterList(9, this.state.offset)
+      .getCharacterList(offset)
       .then((res) => this.onCharactersLoaded(res))
       .catch(() => this.onCharactersError());
   };
@@ -44,11 +55,10 @@ class CharacterList extends Component {
   }
 
   render() {
-    const { characters, isLoading, isError } = this.state;
+    const { characters, isLoading, isAddLoading, isError, listOffset, listEnded } = this.state;
     const { onChooseCharacter } = this.props;
 
     const error = isError ? <AppError message={'An error occurred while loading the characters...'} /> : null;
-    const spinner = isLoading ? <AppSpinner /> : null;
 
     let content = null;
 
@@ -79,15 +89,23 @@ class CharacterList extends Component {
       <div className="charater-list">
         <ul className="charater-list__body">
           {error}
-          {spinner}
           {content}
         </ul>
-        <button className="charater-list__button custom-button" onClick={() => this.updateCharacters()}>
-          Load More
+        <button
+          className="charater-list__button custom-button"
+          style={{ display: listEnded ? 'none' : 'block' }}
+          disabled={isAddLoading}
+          data-is-add-loading={isAddLoading}
+          onClick={() => this.updateCharacters(listOffset)}>
+          {isAddLoading ? <AppSpinner /> : 'Load More'}
         </button>
       </div>
     );
   }
 }
+
+CharacterList.propTypes = {
+  onChooseCharacter: PropTypes.func.isRequired,
+};
 
 export default CharacterList;

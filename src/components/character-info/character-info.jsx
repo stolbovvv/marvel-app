@@ -1,5 +1,6 @@
 import './character-info.scss';
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import MarvelServis from '../../services/marvel-service';
 import AppError from '../app-error/app-error';
 import AppSpinner from '../app-spinner/app-spinner';
@@ -129,5 +130,9 @@ class CharacterInfo extends Component {
     );
   }
 }
+
+CharacterInfo.propTypes = {
+  characterID: PropTypes.number,
+};
 
 export default CharacterInfo;

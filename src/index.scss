@@ -99,6 +99,14 @@ body {
     background-position: 50%;
     opacity: 0.5;
   }
+
+  &[data-is-add-loading='true']:disabled {
+    filter: grayscale(0);
+    display: flex;
+    justify-content: center;
+    background: none;
+    opacity: 1;
+  }
 }
 
 .custom-link {
